@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1"
+    >
+
+    <meta
+        name="description"
+        content="Participa en el sorteo de un cambio de look total"
+    >
+
+    <title>Sorteo | ALTER EGO</title>
+
+    <link
+        rel="stylesheet"
+        href="css/styles.css"
+    >
+</head>
+
+<body>
+
+    <header class="shell topbar">
+
+        <div class="brand">
+
+            <img
+                src="assets/logo.png"
+                alt="Logo ALTER EGO"
+                onerror="this.style.display='none'"
+            >
+
+        </div>
+
+        <a
+            id="instagramLink"
+            class="ig-link"
+            target="_blank"
+            rel="noopener"
+            aria-label="Visitar Instagram de ALTER EGO"
+            title="Visitar Instagram"
+        >
+
+            <img
+                src="./archivos/instagram.png"
+                alt="Instagram de ALTER EGO"
+                class="instagram-logo"
+            >
+
+        </a>
+
+    </header>
+
+    <main class="shell hero">
+
+        <section>
+
+            <span class="eyebrow">
+                Sorteo exclusivo
+            </span>
+
+            <h1>
+                GANA UN
+                <span>CAMBIO DE LOOK</span>
+                TOTAL
+            </h1>
+
+            <p class="hero-copy">
+                Completa tus datos una sola vez y quedarás participando
+                automáticamente. El ganador se anunciará durante nuestra
+                transmisión en vivo de Instagram.
+            </p>
+
+            <div class="prize">
+
+                <span class="pill">
+                    ✨ Participación gratuita
+                </span>
+
+                <span class="pill">
+                    📺 Sorteo en vivo
+                </span>
+
+                <span
+                    class="pill"
+                    id="drawDatePill"
+                >
+                    📅 Próximamente
+                </span>
+
+            </div>
+
+        </section>
+
+        <section class="glass form-card">
+
+            <h2>
+                Completa tus datos para participar
+            </h2>
+
+            <p>
+                Todos los campos son obligatorios.
+            </p>
+
+            <form
+                id="registrationForm"
+                novalidate
+            >
+
+                <div class="grid">
+
+                    <div class="field">
+
+                        <label for="firstName">
+                            Nombres
+                        </label>
+
+                        <input
+                            id="firstName"
+                            name="firstName"
+                            type="text"
+                            maxlength="80"
+                            autocomplete="given-name"
+                            required
+                        >
+
+                    </div>
+
+                    <div class="field">
+
+                        <label for="lastName">
+                            Apellidos
+                        </label>
+
+                        <input
+                            id="lastName"
+                            name="lastName"
+                            type="text"
+                            maxlength="80"
+                            autocomplete="family-name"
+                            required
+                        >
+
+                    </div>
+
+                    <div class="field">
+
+                        <label for="documentType">
+                            Tipo de documento
+                        </label>
+
+                        <select
+                            id="documentType"
+                            name="documentType"
+                            required
+                        >
+
+                            <option value="">
+                                Selecciona
+                            </option>
+
+                            <option value="DNI">
+                                DNI
+                            </option>
+
+                            <option value="CE">
+                                Carné de extranjería
+                            </option>
+
+                            <option value="PASAPORTE">
+                                Pasaporte
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="field">
+
+                        <label for="documentNumber">
+                            Número de documento
+                        </label>
+
+                        <input
+                            id="documentNumber"
+                            name="documentNumber"
+                            type="text"
+                            inputmode="text"
+                            maxlength="20"
+                            required
+                        >
+
+                    </div>
+
+                    <div class="field">
+
+                        <label for="phone">
+                            Número de celular
+                        </label>
+
+                        <input
+                            id="phone"
+                            name="phone"
+                            type="tel"
+                            inputmode="tel"
+                            maxlength="20"
+                            autocomplete="tel"
+                            required
+                        >
+
+                    </div>
+
+                    <div class="field">
+
+                        <label for="email">
+                            Correo electrónico
+                        </label>
+
+                        <input
+                            id="email"
+                            name="email"
+                            type="email"
+                            maxlength="160"
+                            autocomplete="email"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+                <label class="check">
+
+                    <input
+                        id="consent"
+                        type="checkbox"
+                        required
+                    >
+
+                    <span>
+                        Acepto las bases del sorteo y autorizo el uso de mis
+                        datos únicamente para gestionar mi participación y
+                        contactarme sobre el resultado.
+                    </span>
+
+                </label>
+
+                <button
+                    class="btn btn-primary"
+                    id="submitBtn"
+                    type="submit"
+                >
+                    PARTICIPAR EN EL SORTEO
+                </button>
+
+                <div
+                    id="formMessage"
+                    class="form-message"
+                    aria-live="polite"
+                ></div>
+
+            </form>
+
+        </section>
+
+    </main>
+
+    <footer class="footer">
+
+        ©
+        <span id="year"></span>
+        ALTER EGO · Sorteo promocional
+
+    </footer>
+
+    <div
+        id="modalBackdrop"
+        class="modal-backdrop hidden"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modalTitle"
+    >
+
+        <div class="glass modal">
+
+            <div
+                class="modal-icon"
+                id="modalIcon"
+            >
+                ✓
+            </div>
+
+            <h3 id="modalTitle"></h3>
+
+            <p id="modalText"></p>
+
+            <div class="modal-actions">
+
+                <button
+                    id="modalClose"
+                    class="btn btn-secondary"
+                    type="button"
+                >
+                    Cerrar
+                </button>
+
+                <a
+                    id="modalInstagram"
+                    class="btn btn-primary"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    Volver a Instagram
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script
+        type="module"
+        src="js/register.js"
+    ></script>
+
+</body>
+
+</html>

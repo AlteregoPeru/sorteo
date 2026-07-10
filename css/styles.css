@@ -1,0 +1,726 @@
+:root {
+    --bg: #070a09;
+    --panel: rgba(18, 28, 24, 0.78);
+    --panel2: rgba(10, 16, 14, 0.92);
+    --green: #24c77a;
+    --green2: #08794a;
+    --gold: #d7b55b;
+    --text: #f4f7f5;
+    --muted: #9fb0a8;
+    --danger: #ff5d6c;
+    --line: rgba(255, 255, 255, 0.1);
+    --shadow: 0 24px 70px rgba(0, 0, 0, 0.48);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Inter, system-ui, -apple-system, Segoe UI, sans-serif;
+    background:
+        radial-gradient(
+            circle at 15% 10%,
+            rgba(36, 199, 122, 0.16),
+            transparent 34%
+        ),
+        radial-gradient(
+            circle at 85% 20%,
+            rgba(215, 181, 91, 0.11),
+            transparent 30%
+        ),
+        linear-gradient(
+            145deg,
+            #050706,
+            #0a110e 55%,
+            #050706
+        );
+    color: var(--text);
+    min-height: 100vh;
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.shell {
+    width: min(1180px, calc(100% - 30px));
+    margin: auto;
+}
+
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 0;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand img {
+    width: 149px;
+    height: 54px;
+    object-fit: contain;
+}
+
+.brand strong {
+    letter-spacing: 0.15em;
+}
+
+/* Enlace e imagen de Instagram */
+
+.ig-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    padding: 6px;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--text);
+    text-decoration: none;
+    cursor: pointer;
+    transition:
+        transform 0.25s ease,
+        background-color 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.ig-link:hover {
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(36, 199, 122, 0.45);
+}
+
+.ig-link:active {
+    transform: scale(0.95);
+}
+
+.ig-link:focus-visible {
+    outline: 2px solid var(--green);
+    outline-offset: 4px;
+}
+
+.instagram-logo {
+    width: 48px;
+    height: 48px;
+    display: block;
+    object-fit: contain;
+    transition: transform 0.25s ease;
+}
+
+.ig-link:hover .instagram-logo {
+    transform: scale(1.08);
+}
+
+.hero {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 34px;
+    align-items: center;
+    padding: 35px 0 70px;
+}
+
+.eyebrow {
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-weight: 800;
+    font-size: 0.75rem;
+}
+
+.hero h1 {
+    font-size: clamp(2.8rem, 7vw, 5.8rem);
+    line-height: 0.92;
+    margin: 16px 0 20px;
+}
+
+.hero h1 span {
+    color: var(--green);
+}
+
+.hero-copy {
+    color: var(--muted);
+    font-size: 1.06rem;
+    max-width: 620px;
+    line-height: 1.7;
+}
+
+.prize {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 28px;
+}
+
+.pill {
+    border: 1px solid var(--line);
+    background: rgba(255, 255, 255, 0.05);
+    padding: 12px 15px;
+    border-radius: 16px;
+    color: #dbe4df;
+}
+
+.glass {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(25, 37, 32, 0.9),
+            rgba(8, 13, 11, 0.78)
+        );
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(18px);
+    border-radius: 28px;
+}
+
+.form-card {
+    padding: 28px;
+}
+
+.form-card h2 {
+    margin: 0 0 6px;
+}
+
+.form-card > p {
+    margin: 0 0 24px;
+    color: var(--muted);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.field.full {
+    grid-column: 1 / -1;
+}
+
+.field label {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #dce5e0;
+}
+
+.field input,
+.field select {
+    width: 100%;
+    border: 1px solid var(--line);
+    background: rgba(0, 0, 0, 0.25);
+    color: var(--text);
+    border-radius: 14px;
+    padding: 14px 15px;
+    outline: none;
+    transition: 0.2s;
+}
+
+.field input:focus,
+.field select:focus {
+    border-color: var(--green);
+    box-shadow: 0 0 0 4px rgba(36, 199, 122, 0.12);
+}
+
+option {
+    background: #101712;
+}
+
+.check {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    color: var(--muted);
+    font-size: 0.84rem;
+    line-height: 1.4;
+    margin: 18px 0;
+}
+
+.check input {
+    accent-color: var(--green);
+    margin-top: 3px;
+}
+
+.btn {
+    border: 0;
+    border-radius: 14px;
+    padding: 14px 18px;
+    font-weight: 800;
+    transition: 0.2s;
+}
+
+.btn-primary {
+    width: 100%;
+    color: #04110a;
+    background:
+        linear-gradient(
+            135deg,
+            var(--green),
+            #7ee7ae
+        );
+    box-shadow: 0 13px 30px rgba(36, 199, 122, 0.2);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    color: var(--text);
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid var(--line);
+}
+
+.btn-danger {
+    color: white;
+    background:
+        linear-gradient(
+            135deg,
+            #d43f51,
+            var(--danger)
+        );
+}
+
+.btn:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.form-message {
+    min-height: 24px;
+    margin-top: 12px;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.error {
+    color: #ff8e9a;
+}
+
+.success {
+    color: #7ee7ae;
+}
+
+.footer {
+    text-align: center;
+    color: #687a71;
+    padding: 0 0 30px;
+    font-size: 0.82rem;
+}
+
+.modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.76);
+    display: grid;
+    place-items: center;
+    padding: 20px;
+    z-index: 1000;
+}
+
+.modal {
+    width: min(470px, 100%);
+    padding: 30px;
+    text-align: center;
+}
+
+.modal-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    margin: 0 auto 18px;
+    font-size: 2rem;
+    background: rgba(36, 199, 122, 0.14);
+    color: var(--green);
+    border: 1px solid rgba(36, 199, 122, 0.32);
+}
+
+.modal h3 {
+    font-size: 1.6rem;
+    margin: 0 0 10px;
+}
+
+.modal p {
+    color: var(--muted);
+    line-height: 1.55;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 22px;
+}
+
+.loader {
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(0, 0, 0, 0.25);
+    border-top-color: #03140a;
+    border-radius: 50%;
+    display: inline-block;
+    vertical-align: -4px;
+    animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Admin */
+
+.admin-body {
+    background: #070a09;
+}
+
+.admin-login {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 20px;
+}
+
+.login-card {
+    width: min(440px, 100%);
+    padding: 34px;
+}
+
+.login-card .brand {
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
+.login-card h1 {
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.login-card > p {
+    text-align: center;
+    color: var(--muted);
+    margin-bottom: 25px;
+}
+
+.admin-app {
+    min-height: 100vh;
+}
+
+.admin-header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: rgba(7, 10, 9, 0.88);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--line);
+}
+
+.admin-header-inner {
+    width: min(1400px, calc(100% - 30px));
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 0;
+}
+
+.admin-main {
+    width: min(1400px, calc(100% - 30px));
+    margin: 28px auto 50px;
+}
+
+.admin-nav {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.nav-btn {
+    border: 1px solid var(--line);
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--muted);
+    padding: 10px 14px;
+    border-radius: 12px;
+}
+
+.nav-btn.active {
+    background: rgba(36, 199, 122, 0.13);
+    color: var(--green);
+    border-color: rgba(36, 199, 122, 0.35);
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 25px;
+}
+
+.stat {
+    padding: 21px;
+}
+
+.stat small {
+    color: var(--muted);
+}
+
+.stat strong {
+    display: block;
+    font-size: 2rem;
+    margin-top: 7px;
+}
+
+.section-card {
+    padding: 22px;
+    margin-bottom: 22px;
+}
+
+.section-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 18px;
+}
+
+.section-head h2 {
+    margin: 0;
+}
+
+.toolbar {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.search {
+    min-width: 260px;
+    border: 1px solid var(--line);
+    background: rgba(0, 0, 0, 0.25);
+    color: white;
+    padding: 11px 13px;
+    border-radius: 12px;
+    outline: none;
+}
+
+.table-wrap {
+    overflow: auto;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 980px;
+}
+
+th,
+td {
+    text-align: left;
+    padding: 13px 14px;
+    border-bottom: 1px solid var(--line);
+    font-size: 0.88rem;
+}
+
+th {
+    color: #b8c7bf;
+    background: rgba(255, 255, 255, 0.035);
+    position: sticky;
+    top: 0;
+}
+
+td {
+    color: #e3ebe7;
+}
+
+.badge {
+    display: inline-flex;
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 800;
+}
+
+.badge-green {
+    color: #72e8a9;
+    background: rgba(36, 199, 122, 0.12);
+}
+
+.badge-gold {
+    color: #f2d98e;
+    background: rgba(215, 181, 91, 0.12);
+}
+
+.draw-area {
+    text-align: center;
+    padding: 25px;
+}
+
+.draw-number {
+    font-size: clamp(3rem, 10vw, 7rem);
+    font-weight: 900;
+    color: var(--gold);
+    letter-spacing: 0.06em;
+    text-shadow: 0 0 45px rgba(215, 181, 91, 0.3);
+    min-height: 1.2em;
+}
+
+.winner-name {
+    font-size: 2rem;
+    margin: 10px 0;
+    color: var(--green);
+}
+
+.winner-data {
+    color: var(--muted);
+}
+
+.draw-controls {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 25px;
+}
+
+.countdown {
+    font-size: 5rem;
+    font-weight: 900;
+    color: var(--green);
+}
+
+.empty {
+    padding: 30px;
+    text-align: center;
+    color: var(--muted);
+}
+
+.confetti {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 999;
+    overflow: hidden;
+}
+
+.confetti i {
+    position: absolute;
+    top: -20px;
+    width: 9px;
+    height: 18px;
+    background: var(--gold);
+    animation: fall 2.8s linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh) rotate(720deg);
+    }
+}
+
+@media (max-width: 900px) {
+    .hero {
+        grid-template-columns: 1fr;
+    }
+
+    .stats {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .hero h1 {
+        font-size: 3.8rem;
+    }
+
+    .admin-header-inner {
+        align-items: flex-start;
+        gap: 12px;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 620px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .field.full {
+        grid-column: auto;
+    }
+
+    .topbar {
+        align-items: flex-start;
+    }
+
+    .brand strong {
+        font-size: 0.82rem;
+    }
+
+    .instagram-logo {
+        width: 40px;
+        height: 40px;
+    }
+
+    .hero {
+        padding-top: 10px;
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+    }
+
+    .form-card {
+        padding: 20px;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+    .section-head {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .search {
+        min-width: 100%;
+        width: 100%;
+    }
+
+    .modal-actions {
+        flex-direction: column;
+    }
+
+    .modal-actions .btn {
+        width: 100%;
+    }
+}
